@@ -1,10 +1,22 @@
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
-console.log("Hello from Buidler Analyzer!");
+console.log("Hello from Github Analyzer!");
 
 const router = new Router();
 
-router.get("/analyze_user", async (context) => {
+router
+.get("/", async (context) => {
+  context.response.body = "Hello from Github Analyzer!";
+})
+.get("/analyze_org", async (context) => {
+  // TODO: impl this one.
+  context.response.body = "TODO: analyze org";
+})
+.get("/analyze_repo", async (context) => {
+  // TODO: impl this one.
+  context.response.body = "TODO: analyze repo";
+})
+.get("/analyze_user", async (context) => {
   const githubToken = Deno.env.get("GITHUB_TOKEN");
   if (!githubToken) {
     context.response.status = 500;
@@ -76,7 +88,7 @@ router.get("/analyze_user", async (context) => {
       lastCommitInLastMonth: lastCommitTime && (new Date().getTime() - lastCommitTime.getTime() <= 30 * 24 * 60 * 60 * 1000),
     };
     /* HINT: DO NOT DEL THIS ONE.
-    
+
     > https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#primary-rate-limit-for-authenticated-users
     
     You can use a personal access token to make API requests. Additionally, you can authorize a GitHub App or OAuth app, which can then make API requests on your behalf.
