@@ -13,6 +13,8 @@ router
   context.response.body = "TODO: analyze org";
 })
 .get("/analyze_repo", async (context) => {
+  // HINT: DO NOT DEL THIS ONE.
+  // TODO: calculate a score based on the bewater rules(on chain rules)?
   // TODO: impl this one.
   context.response.body = "TODO: analyze repo";
 })
@@ -80,8 +82,10 @@ router
     // Perform basic analysis
     const analysis = {
       followersBiggerThanOne: userData.followers >= 1,
-      // TODO: impl this two.
-      hasGithubPages: true,
+      // TODO: impl this two:
+      // TODO: calculate a score based on the bewater rules(on chain rules)?
+      // score: 0,
+      // hasGithubPages: true,
       sourcePublicRepos: true,
       hasSocialAccounts: socialAccounts.length > 0,
       hasPublicEmail: Boolean(userData.email),
@@ -159,7 +163,7 @@ router
         socialAccounts: socialAccounts,
         userEmail: userData.email,
         lastCommitTime: lastCommitTime ? lastCommitTime.toISOString() : null,
-        topLanguages: ["Move", "Rust", "Typescript"],
+        // topLanguages: [TODO],
         topTenRepos: topReposWithDetails,
       },
     };
@@ -168,6 +172,14 @@ router
     context.response.status = 500;
     context.response.body = { error: "Failed to analyze user" };
   }
+})
+.post("/upload_ai_task_of_repo", async (context) => {
+  // TODO: impl this one.
+  context.response.body = "upload ai task to analyze repo";
+})
+.get("/get_ai_task_of_repo", async (context) => {
+  // TODO: impl this one.
+  context.response.body = "get the result of ai task of repo";
 });
 
 const app = new Application();
