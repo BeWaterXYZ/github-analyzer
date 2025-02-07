@@ -5,6 +5,6 @@
       "**/node_modules"
     ],
     "include": [],
-    "entrypoint": "mini_apps_light_backend.tsx"
+    "entrypoint": "github_analyzer.tsx"
   }
 }

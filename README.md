@@ -1,7 +1,11 @@
 # github-analyzer
 
-Analyze the github account of a User.
+A service to analyze GitHub repositories, users and organizations.
 
-The pre dApp version:
+```bash
+deno run --allow-net --allow-env --allow-read github_analyzer.tsx
+```
 
-> https://github.com/NonceGeek/buidler-analyzer
+```bash
+deno test --allow-net --allow-env --allow-read github_analyzer.test.ts
+```
