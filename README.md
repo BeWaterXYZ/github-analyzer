@@ -1,5 +1,7 @@
 # github-analyzer
 
+> ChatGPT Version: https://analyzer.rootmud.xyz
+
 A service to analyze GitHub repositories, users and organizations.
 
 ```bash
